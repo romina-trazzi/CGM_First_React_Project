@@ -21,10 +21,9 @@ function App() {
         <section id='core-concepts'>
           <h2>Core Concepts </h2>
           <ul>
-            <CoreConcept {...CORE_CONCEPTS[0]} />
-            <CoreConcept {...CORE_CONCEPTS[1]} />
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
+            {CORE_CONCEPTS.map((conceptItem) => (
+              <CoreConcept key={conceptItem.title} {...conceptItem} />
+            ))}
           </ul>
         </section>
 
@@ -34,12 +33,30 @@ function App() {
           {/* Children in questo caso è il nome della Tab, e sta in mezzo 
           al tag del componente (vedi il componente child) */}
           <menu>
-            <TabButton onSelect={() => handleClick('components')}>
+            <TabButton
+              isSelected={selectedTopic === 'components'}
+              onSelect={() => handleClick('components')}
+            >
               Components
             </TabButton>
-            <TabButton onSelect={() => handleClick('jsx')}> JSX </TabButton>
-            <TabButton onSelect={() => handleClick('props')}> Props </TabButton>
-            <TabButton onSelect={() => handleClick('state')}> State </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'jsx'}
+              onSelect={() => handleClick('jsx')}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'props'}
+              onSelect={() => handleClick('props')}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'state'}
+              onSelect={() => handleClick('state')}
+            >
+              State
+            </TabButton>
           </menu>
 
           {selectedTopic === undefined ? <p> Please select a topic. </p> : null}
@@ -93,6 +110,10 @@ export default App;
   2. { EXAMPLES [selectedTopic] è un modo di accedere alla stringa che si accoppia 
   agli oggetti dentro EXAMPLES }  
 
+  3. Altro metodo per la renderizzazione condizionale è inserire una const con elemento HTML + un  ciclo 
+  if prima del return
 
-*/
+
+
+  */
 

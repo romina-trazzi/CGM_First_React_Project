@@ -1,12 +1,41 @@
-// Componente figlio: destructuring dell'oggetto props
-function CoreConcept({ title, image, description }) {
+import CoreConcept from './CoreConcept';
+import Section from './Section';
+import { CORE_CONCEPTS } from '../data';
+
+function CoreConcepts() {
   return (
-    <li>
-      <img src={image} alt={title} />
-      <h3> {title} </h3>
-      <p> {description} </p>
-    </li>
+    <Section id='core-concepts' title='CoreConcepts'>
+      <ul>
+        {CORE_CONCEPTS.map((conceptItem) => (
+          <CoreConcept key={conceptItem.title} {...conceptItem} />
+        ))}
+      </ul>
+    </Section>
   );
 }
 
-export default CoreConcept;
+export default CoreConcepts;
+
+/*
+
+  1. ALTRO METODO IN USO PER IL PARENT
+
+  <CoreConcept
+    title={CORE_CONCEPTS[1].title}
+    description={CORE_CONCEPTS[1].description}
+    image={CORE_CONCEPTS[1].image}
+  />
+              
+  <CoreConcept
+    title={CORE_CONCEPTS[2].title}
+    description={CORE_CONCEPTS[2].description}
+    image={CORE_CONCEPTS[2].image}
+  />
+    
+  <CoreConcept
+    title={CORE_CONCEPTS[3].title}
+    description={CORE_CONCEPTS[3].description}
+    image={CORE_CONCEPTS[3].image}
+  />
+
+  */

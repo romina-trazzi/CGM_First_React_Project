@@ -1,7 +1,7 @@
 import reactImage from '../../assets/react-core-concepts.png';
 import './Header.css'; /* Per importare il CSS anche se sono nella stessa cartella il path viene messo direttamente */
 
-const reactDescription = ['Funtamental', 'Crucial', 'Core'];
+const reactDescription = ['Fundamental', 'Crucial', 'Core'];
 
 function genRandomInt(max) {
   return Math.floor(Math.random() * (max + 1));
